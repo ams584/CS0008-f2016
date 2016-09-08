@@ -14,7 +14,9 @@
 # Notes:
 # any notes to the instructor and/or TA goes here
 
-
-x = float(input("Enter the number of meters:"))
-a = float(x/4046.8564224)
-print(a)
+m = float(input("Enter the number of miles driven:"))
+g = float(input("Enter the number of gallons used:"))
+km = m*1.60934
+l = g*3.78541
+t = 100*l/km
+print("Kilometers driven:", km, "Liters used:", l, "Liters per 100km:", t)
