@@ -16,6 +16,5 @@
 
 
 x = float(input("Enter the number of meters:"))
-print(x)
-a = 4046.8564224/x
+a = x/4046.8564224
 print(a)
