@@ -13,9 +13,3 @@
 #
 # Notes:
 # any notes to the instructor and/or TA goes here
-
-
-x = float(input("Enter the number of meters:"))
-print(x)
-a = 4046.8564224/x
-print(a)
