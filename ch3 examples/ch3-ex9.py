@@ -14,3 +14,4 @@ elif number >= 11 and number <= 18:
         color = "Red"
     else:
         color = "Black"
+print(color)
