@@ -10,4 +10,7 @@ elif number > 0 and number <= 10:
     else:
         color = "Red"
 elif number >= 11 and number <= 18:
-    
+    if number %2 == 0:
+        color = "Red"
+    else:
+        color = "Black"
