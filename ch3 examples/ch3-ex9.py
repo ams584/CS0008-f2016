@@ -1,3 +1,11 @@
+# name       : Alexander Shepard
+# email      : ams584@pitt.edu
+# date       :
+# class      : CS0008-f2016
+# instructor : Max Novelli (man8@pitt.edu)
+#
+# Description:
+# Starting with Python, Chapter 3, exercise 9
 number = input('Give me a number from 0 to 36:')
 number = int(number)
 if number < 0 and number > 36: #If the number is out of range of 0 and 36

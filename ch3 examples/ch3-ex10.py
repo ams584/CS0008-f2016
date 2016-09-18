@@ -5,7 +5,7 @@
 # instructor : Max Novelli (man8@pitt.edu)
 #
 # Description:
-# Starting with Python, Chapter 3, exercise 3
+# Starting with Python, Chapter 3, exercise 10
 print("Enter the number of coins to make 1 dollar") #Gives instructions to user
 nquarters = int(input("Enter the number of quarters:"))
 ndimes = int(input("Enter the number of dimes:"))

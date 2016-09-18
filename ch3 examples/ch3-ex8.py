@@ -1,3 +1,11 @@
+# name       : Alexander Shepard
+# email      : ams584@pitt.edu
+# date       :
+# class      : CS0008-f2016
+# instructor : Max Novelli (man8@pitt.edu)
+#
+# Description:
+# Starting with Python, Chapter 3, exercise 8
 import math
 people = int(input("Enter the number of people attending:"))    #Recieves the number of people attending
 hdogs = int(input("Enter the number of hot dogs per person:"))  #Receives the number of hot dogs per person

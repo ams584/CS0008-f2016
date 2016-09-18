@@ -1,3 +1,11 @@
+# name       : Alexander Shepard
+# email      : ams584@pitt.edu
+# date       :
+# class      : CS0008-f2016
+# instructor : Max Novelli (man8@pitt.edu)
+#
+# Description:
+# Starting with Python, Chapter 3, exercise 7
 w = 1
 while w < 2:
     c1 = str(input("Enter the first color:"))   #Recieves the first two colors
