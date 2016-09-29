@@ -35,8 +35,8 @@ elif lkm > 8 and lkm <= 10:
 elif lkm <= 8:
     cc = "Excellent"
 
-print("                     USC:     ", "       Metric:")
-print("Distance_____:  ",   format(miles, 3),   format(kilometers, 3))
-print("Gas____:        ",   format(gallons, 3), format(liters, 3))
-print("Consumption____:",   format(mpg, 3), "", format(lkm, 3))
+print("                   USC:", "     Metric:")
+print("Distance_____:",   format(miles, '10.3f'), format(kilometers, '10.3f'))
+print("Gas__________:",    format(gallons, '10.3f'), format(liters, '10.3f'))
+print("Consumption__:",   format(mpg, '10.3f'), format(lkm, '10.3f'))
 print("Gas Consumption Rating:", cc)
