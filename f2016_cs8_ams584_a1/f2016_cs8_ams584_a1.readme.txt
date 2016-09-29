@@ -1,0 +1,6 @@
+The first thing I did was ask for the user to provide units. I then created two if statements, each starting by asking
+for distance and gas used in the proper units. After receiving both of these, the program converted them to the units
+of the other system. This was done for the purpose of printing both types of units, and for calculating the consumption
+rating. After both of these if statements, another was created to calculate consumption rating. After this, I had all
+of the necessary information, so I printed them all out according to the table. The format function was used to make
+sure there was enough space between each variable, and to print each variable with three decimal places.
