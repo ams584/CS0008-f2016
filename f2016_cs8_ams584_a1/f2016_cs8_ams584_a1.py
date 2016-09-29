@@ -7,18 +7,18 @@
 # Description:
 # Starting with Python, Chapter 3, exercise 12
 
-units = str(input("Would you like to use USC or Metric?"))                  # Asks for the user to select USC or Metric
+units = str(input("Would you like to use USC or Metric? "))                  # Asks for the user to select USC or Metric
 if units == "USC":                                                          # Runs if the user selected usc
-    miles = float(input("Enter the number of miles driven:"))               # Receives the number of miles
-    gallons = float(input("Enter the number of gallons used:"))             # Receives the number of gallons
+    miles = float(input("Enter the number of miles driven: "))               # Receives the number of miles
+    gallons = float(input("Enter the number of gallons used: "))             # Receives the number of gallons
     mpg = miles/gallons
     kilometers = miles*1.60934                                              # Converts miles to kilometers
     liters = gallons*3.78541                                                # Converts gallons to liters
     lkm = 100*liters/kilometers                                             # Calculates liters per 100 km
 
 elif units == "Metric":                                                     # Runs if the user selects Metric
-    kilometers = float(input("Enter the number of kilometers driven:"))     # Receives the number of kilometers
-    liters = float(input("Enter the number of liters used:"))               # Receives the number of liters
+    kilometers = float(input("Enter the number of kilometers driven: "))     # Receives the number of kilometers
+    liters = float(input("Enter the number of liters used: "))               # Receives the number of liters
     lkm = 100*liters/kilometers                                             # Calculates liters per 100 km
     miles = kilometers*.621371                                              # Converts kilometers to miles
     gallons = liters*.264172                                                # Converts liters to gallons
