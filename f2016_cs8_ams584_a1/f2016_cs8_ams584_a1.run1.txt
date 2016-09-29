@@ -1,0 +1,18 @@
+1)Would you like to use USC or Metric? USC
+Enter the number of miles driven: 100
+Enter the number of gallons used: 10
+                   USC:      Metric:
+Distance_____:    100.000    160.934
+Gas__________:     10.000     37.854
+Consumption__:     10.000     23.522
+Gas Consumption Rating: Extremely Poor
+
+
+2)Would you like to use USC or Metric? Metric
+Enter the number of kilometers driven: 50
+Enter the number of liters used: 6
+                   USC:      Metric:
+Distance_____:     31.069     50.000
+Gas__________:      1.585      6.000
+Consumption__:     19.601     12.000
+Gas Consumption Rating: Average
