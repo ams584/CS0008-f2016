@@ -1,11 +1,13 @@
-def printKV(key, value):
-    if value is isinstance(value, float):
-        value = format(value, '10.6f')
-    elif value is isinstance(value, int):
-        value = format(value, '10')
-    if key is isinstance(key, str):
-        key = format(key, '20s')
-    print(key, ':', value)
+def printKV(key, value, klen = 0):
+    kl = max(len(key), klen)
+    if isinstance(value, str):
+        fs = '20s'
+    elif isinstance(value, float):
+        fs = '10.3f'
+    if isinstance(value, int):
+        fs = '10'
+    print(format(key, str(kl)+'s'),
+          format(value, fs))
 
 
 def processFile(x):
@@ -18,7 +20,6 @@ def processFile(x):
         if isinstance(distance, str):
             distance = float(distance)
         distance_x = distance_x + distance
-        distance_x = float(distance_x)
     printKV("Partial Distance Run", distance_x)
     printKV("Partial Number of Lines", n)
     return(distance_x)
@@ -26,7 +27,7 @@ t = 0
 distance_total = 0
 
 
-while t == 0:
+while x != 'quit':
     x = str(input("Enter the name of the file and location: "))
     x = open(x, 'r')
     variable = processFile(x)
