@@ -21,6 +21,7 @@ def processFile(x):     # Defines a function to read a file
             distance = float(distance)
         partial_distance = partial_distance + distance  # Totals the distance for the file
     print('\n')     # Creates a blank line
+    print("File to be read:", x)
     printKV("Partial Distance Run", partial_distance)   # Prints partial distance
     printKV("Partial Number of Lines", partial_lines)   # Prints partial number of lines
     print('\n')
