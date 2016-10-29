@@ -20,23 +20,34 @@ def processFile(x):
         if isinstance(distance, str):
             distance = float(distance)
         distance_x = distance_x + distance
-    printKV("Partial Distance Run", distance_x)
-    printKV("Partial Number of Lines", n)
-    return(distance_x)
+    return(distance_x, n)
+
 t = 0
 distance_total = 0
-
-
-while x != 'quit':
+total_lines = 0
+z = 1
+while z != 0:
     x = str(input("Enter the name of the file and location: "))
-    x = open(x, 'r')
-    variable = processFile(x)
-    y = str(input("Read another file? 'y' or 'n': "))
-    if y == 'y':
-        distance_total = variable + distance_total
-    elif y == 'n':
-        distance_total = distance_total + variable
-        printKV("Total Distance Run: ", distance_total)
-        t = 1
-    else:
-        Y = str(input("That was not a valid input."))
+    if x == 'quit':
+        z = 0
+        print("File 1: ")
+        printKV("Partial Distance Run", partial_distance_2)
+        printKV("Partial Number of Lines", partial_lines_2)
+        print('\n')
+
+        print("File 2: ")
+        printKV("Partial Distance Run", partial_distance)
+        printKV("Partial Number of Lines", partial_lines)
+        print('\n')
+
+        print("Total: ")
+        printKV("Total Number of Lines", distance_total)
+        printKV("Total Number of Lines", total_lines)
+    if x != 'quit':
+        x = open(x, 'r')
+        partial_distance, partial_lines = processFile(x)
+        partial_distance_2, partial_lines_2 = processFile(x)
+
+        distance_total = partial_distance + distance_total
+        total_lines = partial_lines + total_lines
+
