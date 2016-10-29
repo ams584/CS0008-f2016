@@ -1,0 +1,9 @@
+The first thing that happens is the user enters a file name. The program then opens the file and reads it.
+The program reads the file line by line and splits it into the name and distance run. The distance is then converted from a string to a float.
+The partial distance is then calculated using a running total, and the lines are counted by adding one to a variable for every iteration of the loop.
+The file is then closed, and the processFile function prints and returns the partial distance and partial number of lines.
+The processFile function is then looped and the total distance and total number of lines are calculated also using running totals.
+The loop only ends when the user types quit, q, or space when prompted for a file name so that an infinite number of files can be entered.
+After the loop ends, the totals are printed.
+Everything is formatted with the printKV function, which uses the isinstance function to test for a string, integer, or float, and then formats
+it accordingly.
