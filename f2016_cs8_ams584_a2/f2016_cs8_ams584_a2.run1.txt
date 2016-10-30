@@ -1,0 +1,28 @@
+C:\Users\Alex\AppData\Local\Programs\Python\Python35-32\python.exe C:/Users/Alex/PycharmProjects/CS0008-f2016/f2016_cs8_ams584_a2/f2016_cs8_ams584_a2.py
+Enter the name of the file and location, or enter 'q', 'quit', or 'space' to quit: /users/Alex/Desktop/Data_File_1.txt
+
+
+File to be read: /users/Alex/Desktop/Data_File_1.txt
+Partial Distance Run   1155.291
+Partial Number of Lines         25
+
+
+Enter the name of the file and location, or enter 'q', 'quit', or 'space' to quit: /users/Alex/Desktop/Data_File_2.txt
+
+
+File to be read: /users/Alex/Desktop/Data_File_2.txt
+Partial Distance Run   1218.663
+Partial Number of Lines         25
+
+
+Enter the name of the file and location, or enter 'q', 'quit', or 'space' to quit: quit
+
+
+
+
+File to be read: quit
+Total:
+Total Number of Lines   2373.954
+Total Number of Lines         50
+
+Process finished with exit code 0
