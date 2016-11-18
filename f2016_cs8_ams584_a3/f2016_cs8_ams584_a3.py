@@ -8,15 +8,18 @@ def processfile(master_file_list, global_dict):
         length_mfl = len(files)
         x = open(filename, 'r')
         x.readline()
+        file_length = len(filename)
         for line in x:
+            z = 0
             line = line.rstrip('\n')
             name, dist = line.split(',')
             p_dist = int(dist)
             t_dist = 0
             t_dist += p_dist
             if name in dict:
+                z = 1
                 dict[name] = dict[name].append(dist)
-    return(dict, t_dist, length_mfl)
+    return(dict, t_dist, length_mfl, file_length, z)
 
 processfile(master_file_list, global_dict)
 max_name = ' '
@@ -33,3 +36,17 @@ for name in global_dict:
     if (min(x_values) < min_dist):
         min_dist = min(x_values)
         min_name = name
+total_participants = len(global_dict)
+print("Number of input files read       :",processfile(2))
+print("Number of lines read             :",processfile(3))
+print("\n")
+print("Total Distance                   :",processfile(1))
+print("\n")
+print("Max Distance Run                 :",max_dist)
+print("     by participant              :",max_name)
+print("\n")
+print("Min Distance Run                 :",min_dist)
+print("     by participant              :",min_name)
+print("Total Number of Participants     :",total_participants)
+if processfile[4] == 1:
+    print()
