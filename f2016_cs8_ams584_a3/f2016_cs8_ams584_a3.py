@@ -19,7 +19,7 @@ def processfile(master_file_list, global_dict):
             if name in dict:
                 z = 1
                 dict[name] = dict[name].append(dist)
-    return(dict, t_dist, length_mfl, file_length, z)
+    return(dict, t_dist, length_mfl, file_length, z, dist)
 
 processfile(master_file_list, global_dict)
 max_name = ' '
@@ -43,10 +43,16 @@ print("\n")
 print("Total Distance                   :",processfile(1))
 print("\n")
 print("Max Distance Run                 :",max_dist)
-print("     by participant              :",max_name)
+print("  by participant                 :",max_name)
 print("\n")
 print("Min Distance Run                 :",min_dist)
-print("     by participant              :",min_name)
+print("  by participant                 :",min_name)
 print("Total Number of Participants     :",total_participants)
-if processfile[4] == 1:
-    print()
+
+output_file = open('output_file.txt', 'w')
+for name in dict:
+    output_file.write(name)
+    output_file.write(',')
+    output_file.write()
+    output_file.write(',')
+    output_file.write(processfile(5))
