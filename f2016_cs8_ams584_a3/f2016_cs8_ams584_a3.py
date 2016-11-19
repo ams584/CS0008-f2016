@@ -19,7 +19,7 @@ def processfile(master_file_list, global_dict):
             if name in dict:
                 z = 1
                 dict[name] = dict[name].append(dist)
-    return(dict, t_dist, length_mfl, file_length, z, dist)
+        return(dict, t_dist, length_mfl, file_length, z, dist)
 
 processfile(master_file_list, global_dict)
 max_name = ' '
@@ -36,6 +36,9 @@ for name in global_dict:
     if (min(x_values) < min_dist):
         min_dist = min(x_values)
         min_name = name
+for dist in global_dict:
+    times_participated = 0
+    times_participated += 1
 total_participants = len(global_dict)
 print("Number of input files read       :",processfile(2))
 print("Number of lines read             :",processfile(3))
