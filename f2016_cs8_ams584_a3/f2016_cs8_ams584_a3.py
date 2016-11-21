@@ -1,49 +1,53 @@
 master_file_list = input("Enter the location of the file list: ")
-global_dict = {}
-def processfile(master_file_list, global_dict):
+global_dictionary = {}
+def processfile(master_file_list, dictionary):
     contents_mfl = open(master_file_list, 'r')
-    files = contents_mfl.readlines()
+    length_mfl = 0
+    length_files = []
     for line in contents_mfl:
+        length_files.append(0)
+        print(length_files)
+        length_mfl+=1
         filename = line.rstrip('\n')
-        length_mfl = len(files)
         x = open(filename, 'r')
         x.readline()
-        file_length = len(filename)
+        t_dist = 0
         for line in x:
+            length_files[length_mfl-1] += 1
             z = 0
             line = line.rstrip('\n')
             name, dist = line.split(',')
-            p_dist = int(dist)
-            t_dist = 0
+            p_dist = float(dist)
             t_dist += p_dist
-            if name in dict:
+            if name in dictionary:
                 z = 1
-                dict[name] = dict[name].append(dist)
-        return(dict, t_dist, length_mfl, file_length, z, dist)
+                dictionary[name] = dictionary[name].append(dist)
+    return(dictionary, t_dist, length_mfl, length_files, z, dist)
 
-processfile(master_file_list, global_dict)
+output = processfile(master_file_list, global_dictionary)
+print (output)
 max_name = ' '
 max_dist = 0
-for name in global_dict:
-    l_values = global_dict[name]
+for name in global_dictionary:
+    l_values = global_dictionary[name]
     if (max(l_values) > max_dist):
         max_dist = max(l_values)
         max_name = name
 min_name = ' '
 min_dist = 0
-for name in global_dict:
-    x_values = global_dict[name]
+for name in global_dictionary:
+    x_values = global_dictionary[name]
     if (min(x_values) < min_dist):
         min_dist = min(x_values)
         min_name = name
-for dist in global_dict:
+for dist in global_dictionary:
     times_participated = 0
     times_participated += 1
-total_participants = len(global_dict)
-print("Number of input files read       :",processfile(2))
-print("Number of lines read             :",processfile(3))
+total_participants = len(global_dictionary)
+print("Number of input files read       :",output[2])
+print("Number of lines read             :",output[3])
 print("\n")
-print("Total Distance                   :",processfile(1))
+print("Total Distance                   :",output[1])
 print("\n")
 print("Max Distance Run                 :",max_dist)
 print("  by participant                 :",max_name)
@@ -53,7 +57,7 @@ print("  by participant                 :",min_name)
 print("Total Number of Participants     :",total_participants)
 
 output_file = open('output_file.txt', 'w')
-for name in dict:
+for name in output[0]:
     output_file.write(name)
     output_file.write(',')
     output_file.write()
