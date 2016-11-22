@@ -60,7 +60,7 @@ print("Min Distance Run                 :",min_dist)
 print("  by participant                 :",min_name)
 print("Total Number of Participants     :",total_participants)
 
-output_file = open('output_file.txt', 'w')
+output_file = open('f2016_cs8_ams584_a3.data.output.csv', 'w')
 for name in output:
     output_file.write(output[6])
     output_file.write(',')
