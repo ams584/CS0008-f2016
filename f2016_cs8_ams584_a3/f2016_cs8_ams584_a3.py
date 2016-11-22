@@ -22,21 +22,22 @@ def processfile(master_file_list, dictionary):
             if name in dictionary:
                 z = 1
                 dictionary.append(dist)
-                print(dictionary)
             else:
                 dictionary = name, dist
-                print(dictionary)
     return(dictionary, t_dist, length_mfl, length_files, z, dist, name)
 
 output = processfile(master_file_list, global_dictionary)
 max_name = ' '
 max_dist = 0
+name, dist = output[0]
+dist = float(dist)
 for name in output[0]:
-    l_values = output[5]
+    l_values = dist
     print(l_values)
     if (max(l_values) > max_dist):
         max_dist = max(l_values)
         max_name = name
+        print(max_dist, max_name)
 min_name = ' '
 min_dist = 0
 for name in output:
