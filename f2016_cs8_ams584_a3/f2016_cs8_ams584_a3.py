@@ -22,31 +22,32 @@ def processfile(master_file_list, dictionary):
             if name in dictionary:
                 z = 1
                 dictionary.append(dist)
+                print(dictionary)
             else:
                 dictionary = name, dist
+                print(dictionary)
     return(dictionary, t_dist, length_mfl, length_files, z, dist, name)
 
 output = processfile(master_file_list, global_dictionary)
 max_name = ' '
 max_dist = 0
 name, dist = output[0]
-dist = dist
 for name in output[0]:
-    l_values = dist
-    print(l_values)
+    l_values = float(dist)
     if l_values > max_dist:
         max_dist = l_values
         max_name = name
 min_name = ' '
 min_dist = 0
 for name in output[0]:
-    x_values = dist
+    x_values = float(dist)
     if (x_values < min_dist):
         min_dist = x_values
         min_name = name
 for dist in output[0]:
     times_participated = 0
     times_participated += 1
+    times_participated = str(times_participated)
 total_participants = len(global_dictionary)
 print("Number of input files read       :",output[2])
 print("Number of lines read             :",output[3])
