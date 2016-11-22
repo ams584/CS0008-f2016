@@ -30,22 +30,21 @@ output = processfile(master_file_list, global_dictionary)
 max_name = ' '
 max_dist = 0
 name, dist = output[0]
-dist = float(dist)
+dist = dist
 for name in output[0]:
-    l_values = dist
+    l_values = max(dist)
     print(l_values)
-    if (max(l_values) > max_dist):
-        max_dist = max(l_values)
+    if l_values > max_dist:
+        max_dist = l_values
         max_name = name
-        print(max_dist, max_name)
 min_name = ' '
 min_dist = 0
-for name in output:
-    x_values = global_dictionary
-    if (min(x_values) < min_dist):
-        min_dist = min(x_values)
+for name in output[0]:
+    x_values = min(dist)
+    if (x_values < min_dist):
+        min_dist = x_values
         min_name = name
-for dist in output:
+for dist in output[0]:
     times_participated = 0
     times_participated += 1
 total_participants = len(global_dictionary)
@@ -65,6 +64,6 @@ output_file = open('output_file.txt', 'w')
 for name in output:
     output_file.write(output[6])
     output_file.write(',')
-    output_file.write()
+    output_file.write(times_participated)
     output_file.write(',')
     output_file.write(output[5])
