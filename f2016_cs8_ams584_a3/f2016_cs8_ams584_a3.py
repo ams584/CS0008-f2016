@@ -6,7 +6,6 @@ def processfile(master_file_list, dictionary):
     length_files = []
     for line in contents_mfl:
         length_files.append(0)
-        print(length_files)
         length_mfl+=1
         filename = line.rstrip('\n')
         x = open(filename, 'r')
@@ -19,28 +18,33 @@ def processfile(master_file_list, dictionary):
             name, dist = line.split(',')
             p_dist = float(dist)
             t_dist += p_dist
+            dictionary = {}
             if name in dictionary:
                 z = 1
-                dictionary[name] = dictionary[name].append(dist)
-    return(dictionary, t_dist, length_mfl, length_files, z, dist)
+                dictionary.append(dist)
+                print(dictionary)
+            else:
+                dictionary = name, dist
+                print(dictionary)
+    return(dictionary, t_dist, length_mfl, length_files, z, dist, name)
 
 output = processfile(master_file_list, global_dictionary)
-print (output)
 max_name = ' '
 max_dist = 0
-for name in global_dictionary:
-    l_values = global_dictionary[name]
+for name in output[0]:
+    l_values = output[5]
+    print(l_values)
     if (max(l_values) > max_dist):
         max_dist = max(l_values)
         max_name = name
 min_name = ' '
 min_dist = 0
-for name in global_dictionary:
-    x_values = global_dictionary[name]
+for name in output:
+    x_values = global_dictionary
     if (min(x_values) < min_dist):
         min_dist = min(x_values)
         min_name = name
-for dist in global_dictionary:
+for dist in output:
     times_participated = 0
     times_participated += 1
 total_participants = len(global_dictionary)
@@ -57,9 +61,9 @@ print("  by participant                 :",min_name)
 print("Total Number of Participants     :",total_participants)
 
 output_file = open('output_file.txt', 'w')
-for name in output[0]:
-    output_file.write(name)
+for name in output:
+    output_file.write(output[6])
     output_file.write(',')
     output_file.write()
     output_file.write(',')
-    output_file.write(processfile(5))
+    output_file.write(output[5])
