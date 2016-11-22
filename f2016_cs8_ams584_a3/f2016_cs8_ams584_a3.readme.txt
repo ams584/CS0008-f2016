@@ -1,0 +1,6 @@
+The first step in the program is to open the master file list. After opening this and reading the files, the program will open each file listed in the master file list.
+After the program opens these files, it will read each individual file, and split each line into a name and distance. A counter will be used in the for loop used to read the individual files
+to count the number of lines. The same method is used to cound the number of files being read. In order to get the total distance, another counter is used inside the for loop to total each
+individual distance. In order to find the max and min distance run for each name, as well as the number of times that a name appears, a dictionary must be created, and searched through by name, and
+each distance read. If a name occurs more than once, that name must be appended to the dictionary to avoid data loss. The same method is also used to cound the number of participants. The
+program must also create a new file, and write to it the name, number of times participated, and the distances.
