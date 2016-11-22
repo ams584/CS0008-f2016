@@ -32,7 +32,7 @@ max_dist = 0
 name, dist = output[0]
 dist = dist
 for name in output[0]:
-    l_values = max(dist)
+    l_values = dist
     print(l_values)
     if l_values > max_dist:
         max_dist = l_values
@@ -40,7 +40,7 @@ for name in output[0]:
 min_name = ' '
 min_dist = 0
 for name in output[0]:
-    x_values = min(dist)
+    x_values = dist
     if (x_values < min_dist):
         min_dist = x_values
         min_name = name
