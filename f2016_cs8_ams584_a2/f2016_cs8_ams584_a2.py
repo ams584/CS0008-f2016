@@ -1,3 +1,9 @@
+#
+# MN: header with user, instructor and course info is missing
+#
+
+
+# MN: could you please not use inline comments
 def printKV(key, value, klen = 0):  # Defines a function that formats output
     kl = max(len(key), klen)
     if isinstance(value, str):  # Tests if the value is a string
@@ -10,6 +16,7 @@ def printKV(key, value, klen = 0):  # Defines a function that formats output
           format(value, fs))
 
 
+# MN: could you please not use inline comments
 def processFile(x):     # Defines a function to read a file
     partial_lines = 0
     partial_distance = 0
