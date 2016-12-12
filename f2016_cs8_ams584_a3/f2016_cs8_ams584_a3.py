@@ -119,7 +119,7 @@ for name in output[0].keys():
     output_file.write(str(len(output[0][name])))
     output_file.write(',')
     # MN: the total distance run can be found summing all the distances found for the participant
-    output_file.write(output[5])
+    #output_file.write(output[5])
     output_file.write(str(sum(output[0][name])))
     # MN: new line to make output look nice
     output_file.write('\n')
