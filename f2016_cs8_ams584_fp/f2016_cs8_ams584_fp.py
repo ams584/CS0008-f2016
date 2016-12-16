@@ -37,8 +37,7 @@ class participant:      # Creates the participant class
 
 def getData(file):      # Defines the getData function
     output = []     # Creates the output list
-    file = open(file,'r')       # Opens the file
-    for line in file:   # Iterates through each line
+    for line in open(file,'r'):     # Opens the file
         if "distance" in line:      # Skips the header line
             continue
         line = line.rstrip('\n').split(',')     # Splits the line into name and distance, and strips the \n
@@ -64,7 +63,6 @@ nfiles = len(dataFiles)     # Gets the length of the data files
 totalLines = len(rawData)   # Gets the total number of lines
 
 totalDistance = sum([item['distance'] for item in rawData])     # Sums all of the distances
-
 participants = {}       # Creates the participants dictionary
 
 for item in rawData:
