@@ -25,86 +25,87 @@ class participant:      # Creates the participant class
     def getRuns(self):  # Returns the number of runs for each particpant
         return self.runs
 
-    def __str__(self):  # Formats the output
+    def __str__(self):  # Turns the object into a string
         return \
             "Name : " + format(self.name, '>20s') + \
             ". Distance run : " + format(self.distance, '9.4f') + \
             ". Runs : " + format(self.runs, '4d')
 
-    def tocsv(self):    #
+    def tocsv(self):    # Converts to csv
         return ','.join([self.name, str(self.runs), str(self.distance)])
 
 
-def getData(file):
-    output = []
-    for line in open(file,'r'):
-        if "distance" in line:
+def getData(file):      # Defines the getData function
+    output = []     # Creates the output list
+    file = open(file,'r')       # Opens the file
+    for line in file:   # Iterates through each line
+        if "distance" in line:      # Skips the header line
             continue
-        line = line.rstrip('\n').split(',')
-        try:
+        line = line.rstrip('\n').split(',')     # Splits the line into name and distance, and strips the \n
+        try:    # Appends the name and distance to the output list
             output.append({'name': line[0].strip(' '), 'distance':float(line[1])})
-        except:
+        except:     # If there is an error, print an error
             print('Invalid row : '+line.rstrip('\n'))
     return output
-masterFile = input("Enter the Master File : ")
+masterFile = input("Enter the Master File : ")      # Prompts the user for the master file
 
 try:
-   data = open(masterFile, 'r')
+   data = open(masterFile, 'r')     # Reads the master file and recieves the list of files
    for file in masterFile:
-       dataFiles = file.rstrip('\n')
+       dataFiles = file.rstrip('\n')    # Strips the \n
 except:
-    print("Invalid file name")
+    print("Invalid file name")      # Prints an error message if the file name is invalid
     exit(1)
 
-for data in dataFiles:
-    rawData = sum(getData(file))
-nfiles = len(dataFiles)
+for data in dataFiles:  # Reads each of the data files
+    rawData = sum(getData(file))    # Totals the data
+nfiles = len(dataFiles)     # Gets the length of the data files
 
-totalLines = len(rawData)
+totalLines = len(rawData)   # Gets the total number of lines
 
-totalDistance = sum([item['distance'] for item in rawData])
+totalDistance = sum([item['distance'] for item in rawData])     # Sums all of the distances
 
-participants = {}
+participants = {}       # Creates the participants dictionary
 
 for item in rawData:
 
-    if not item['name'] in participants.keys():
+    if not item['name'] in participants.keys():     # Adds the participant to the dictionary
         participants[item['name']] = participant(item['name'])
     participants[item['name']].addDistance(item['distance'])
 
-minDistance = { 'name' : None, 'distance': None }
+minDistance = { 'name' : None, 'distance': None }   # Defines the minDistance
 
-maxDistance = { 'name' : None, 'distance': None }
+maxDistance = { 'name' : None, 'distance': None }   # Defines the maxDistance
 
-apparences = {}
+appearences = {}     # Defines the appearances
 
-for name, object in participants.items():
+for name, object in participants.items():   # Loops through all the participants
 
-    distance = object.getDistance()
+    distance = object.getDistance()     # Gets the distance for each particpant
 
-    if minDistance['name'] is None or minDistance['distance'] > distance:
+    if minDistance['name'] is None or minDistance['distance'] > distance:   # Redefines the minDistance if there is no distance run or if the minimum distance is bigger than the distance run
         minDistance['name'] = name
         minDistance['distance'] = distance
 
-    if maxDistance['name'] is None or maxDistance['distance'] < distance:
+    if maxDistance['name'] is None or maxDistance['distance'] < distance:   # Redefines the maxDistance if there is no distance run or if the maximum distance is smaller than the distance run
         maxDistance['name'] = name
         maxDistance['distance'] = distance
 
-    participantAppearences = object.getRuns()
+    participantAppearences = object.getRuns()   # Gets the number of runs for each particpant
 
-    if not participantAppearences in apparences.keys():
-        apparences[participantAppearences] = []
-    apparences[participantAppearences].append(name)
+    if not participantAppearences in appearences.keys():    # Adds the number of times the participants appeared to the dictionary
+        appearences[participantAppearences] = []
+    appearences[participantAppearences].append(name)
 
-totalParticipants = len(participants);
+totalParticipants = len(participants)   # Gets the length of the participant list
 
-totalParticipantsMultipleRecords = len([1 for item in participants.values() if item.getRuns() > 1])
+totalParticipantsMultipleRecords = len([1 for item in participants.values() if item.getRuns() > 1])     # Creates a total and adds to it each time a participants name appears in the particpants dictionary
 
-int = '5d'
-float = '12.5f'
-str = '20s'
+int = '5d'  # Formats the integers
+float = '12.5f' # Formats the floats
+str = '20s' # Formats the strings
 
-print("")
+print("")       # Prints everything
 print(" Number of Input files read   : " + format(nfiles,int))
 print(" Total number of lines read   : " + format(totalLines,int))
 print("")
@@ -121,16 +122,16 @@ print(" Number of participants")
 print("  with multiple records       : " + format(totalParticipantsMultipleRecords,float))
 print("")
 
-outputFile = "f2016_cs8_ams584_fp.output.csv"
+outputFile = "f2016_cs8_ams584_fp.output.csv"       # Creats an output file
 
-fh = open(outputFile,'w')
+fh = open(outputFile,'w')       # Opens the output file
 
-fh.write('name,records,distance\n')
+fh.write('name,records,distance\n')     # Writes the names, records, and distances to the output file
 
 for name, object in participants.items():
 
-    fh.write(object.tocsv() + '\n')
+    fh.write(object.tocsv() + '\n')     # Writes the tocsv function
 
-fh.close()
+fh.close()      # Closes the file
 
 
